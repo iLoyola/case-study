@@ -65,6 +65,42 @@
           </section>
 
           <section>
+            <h2 class="font-serif font-bold text-headline text-ink mb-6">Site in Action</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <figure>
+                <video
+                  ref="video1"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  aria-label="fondaai.com desktop to mobile responsive layout transition"
+                  class="w-full rounded-sm border border-rule"
+                >
+                  <source src="/video/fondaAI1.webm" type="video/webm" />
+                  <source src="/video/fondaAI1.mp4" type="video/mp4" />
+                </video>
+                <figcaption class="font-sans text-xs text-muted mt-2">fondaai.com — responsive layout</figcaption>
+              </figure>
+              <figure>
+                <video
+                  ref="video2"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  aria-label="fondaai.com product section responsive layout transition"
+                  class="w-full rounded-sm border border-rule"
+                >
+                  <source src="/video/fondaAI2.webm" type="video/webm" />
+                  <source src="/video/fondaAI2.mp4" type="video/mp4" />
+                </video>
+                <figcaption class="font-sans text-xs text-muted mt-2">fondaai.com — product section</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section>
             <h2 class="font-serif font-bold text-headline text-ink mb-4">End-to-End Delivery</h2>
             <p class="font-sans text-base text-muted leading-relaxed mb-4">
               Every client engagement runs the full cycle: discovery interviews, requirements translation,
@@ -117,5 +153,17 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
 const tags = ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Retell AI', 'GoHighLevel', 'n8n', 'Zapier', 'Twilio', 'REST APIs']
+
+const video1 = ref<HTMLVideoElement | null>(null)
+const video2 = ref<HTMLVideoElement | null>(null)
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video1.value?.pause()
+    video2.value?.pause()
+  }
+})
 </script>

@@ -64,6 +64,42 @@
           </section>
 
           <section>
+            <h2 class="font-serif font-bold text-headline text-ink mb-6">Site in Action</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <figure>
+                <video
+                  ref="video1"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  aria-label="food.iloyola.com recipe view responsive layout transition from desktop to mobile"
+                  class="w-full rounded-sm border border-rule"
+                >
+                  <source src="/video/iLoyola_food1.webm" type="video/webm" />
+                  <source src="/video/iLoyola_food1.mp4" type="video/mp4" />
+                </video>
+                <figcaption class="font-sans text-xs text-muted mt-2">food.iloyola.com — recipe view</figcaption>
+              </figure>
+              <figure>
+                <video
+                  ref="video2"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  aria-label="food.iloyola.com shopping list responsive layout transition from desktop to mobile"
+                  class="w-full rounded-sm border border-rule"
+                >
+                  <source src="/video/iLoyola_food2.webm" type="video/webm" />
+                  <source src="/video/iLoyola_food2.mp4" type="video/mp4" />
+                </video>
+                <figcaption class="font-sans text-xs text-muted mt-2">food.iloyola.com — shopping list</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section>
             <h2 class="font-serif font-bold text-headline text-ink mb-4">Technical Decisions Worth Noting</h2>
             <p class="font-sans text-base text-muted leading-relaxed mb-4">
               The backend migration from Firebase to Supabase was a deliberate architectural choice — not a refactor mid-project, but a decision made to work with proper relational data and real SQL.
@@ -113,5 +149,17 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
 const tags = ['Vue 3', 'TypeScript', 'Vite', 'Supabase', 'PostgreSQL', 'Pinia', 'Tailwind CSS', 'Vitest', 'Playwright', 'Netlify']
+
+const video1 = ref<HTMLVideoElement | null>(null)
+const video2 = ref<HTMLVideoElement | null>(null)
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video1.value?.pause()
+    video2.value?.pause()
+  }
+})
 </script>

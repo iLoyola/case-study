@@ -3,6 +3,7 @@ dist
 .DS_Store
 *.local
 vite.config.ts.timestamp-*
+public/video/*.mov
 
 # Local Netlify folder
 .netlify
