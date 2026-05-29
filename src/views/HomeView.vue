@@ -13,7 +13,7 @@
           now shipping agentic web apps and real AI deployments through
           <a href="https://fondaai.com" target="_blank" rel="noopener noreferrer" class="link-underline text-ink">Fonda AI</a>.
           I use coding agents the way a good developer uses any sharp tool: to build faster and better.
-          Currently adding Python, Flask, and Docker at Waterloo. Based in Waterdown, Ontario.
+          Currently adding Python, Flask, and Docker at University of Waterloo, WatSpeed. Based in Waterdown, Ontario.
         </p>
         <div class="flex flex-wrap gap-4">
           <RouterLink to="/work" class="btn-primary">View my work</RouterLink>
